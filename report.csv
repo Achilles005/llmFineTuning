@@ -1,0 +1,57 @@
+Model,Pros,Cons,,,
+Llama3.2-3b,Fast Training ; Less Resources Consumption,Need more data for more accurate results,,,
+Phi-4 Non-Reasoning,Easy to Train ; Better accuracy than Llama3.2,Resource consumption ; training time,,,
+Phi-4 Reasoning (Recommended),Very accurate results (best so far),Training time and resources consumptions ,,,
+,,,,,
+,,,,,
+Model Performance,,,,,
+Model,Metric,Class,Base Model,Fine-Tuned Model,Change
+Llama3.2-3b,Accuracy,Overall,0.39,0.74,🔼 +0.350
+,Accuracy,Noncancer,0.255,0.909,🔼 +0.654
+,Accuracy,Cancer,0.556,0.533,🔽 -0.023
+,Precision,Noncancer,0.45,0.7,🔼 +0.25
+,Precision,Cancer,0.38,0.83,🔼 +0.45
+,Recall,Noncancer,0.25,0.91,🔼 +0.66
+,Recall,Cancer,0.56,0.53,🔽 -0.03
+,F1-Score,Noncancer,0.33,0.79,🔼 +0.46
+,F1-Score,Cancer,0.45,0.65,🔼 +0.20
+,Macro Avg F1-Score,-,0.39,0.72,🔼 +0.33
+,Weighted Avg F1-Score,-,0.38,0.73,🔼 +0.35
+,Confusion Matrix,Noncancer,"[14, 41]","[50, 5]",✅ FP reduced
+,Confusion Matrix,Cancer,"[17, 25]","[21, 24]",Slight drop
+,,,,,
+,Conclusion,The fine-tuned model delivers a substantial boost in general performance.,,,
+,,Excellent gains in Noncancer detection.,,,
+,,"Slight trade-off in Cancer recall, but overall performance still improved significantly.",,,
+,,,,,
+Phi-4 Non-Reasoning,Accuracy,Overall,0.8,0.86,🔼 +0.06
+,Accuracy,Noncancer,0.822,0.88,🔼 +0.058
+,Accuracy,Cancer,0.782,0.84,🔼 +0.058
+,Precision,Noncancer,0.9,0.92,🔼 +0.02
+,Precision,Cancer,0.88,0.9,🔼 +0.02
+,Recall,Noncancer,0.82,0.88,🔼 +0.06
+,Recall,Cancer,0.78,0.84,🔼 +0.06
+,F1-Score,Noncancer,0.86,0.9,🔼 +0.04
+,F1-Score,Cancer,0.83,0.87,🔼 +0.04
+,Macro Avg F1-Score,-,0.84,0.89,🔼 +0.05
+,Weighted Avg F1-Score,-,0.84,0.89,🔼 +0.05
+,Confusion Matrix,Noncancer,"[37, 6]","[40, 5]",🔼 FP↓
+,Confusion Matrix,Cancer,"[4, 43]","[3, 46]",🔼 FN↓
+,,,,,
+,Conclusion,"Phi-4 shows solid improvement post-finetuning across all metrics, especially in class balance and F1-scores. This implies better generalization and reduced class bias.",,,
+,,,,,
+Phi-4 Reasoning,Accuracy,Overall,0.96,0.98,🔼 +0.020
+,Accuracy,Noncancer,0.889,0.98,🔼 +0.091
+,Accuracy,Cancer,1,1,➖ 0.000
+,Precision,Noncancer,1,1,➖ 0.00
+,Precision,Cancer,0.94,0.97,🔼 +0.03
+,Recall,Noncancer,0.89,0.98,🔼 +0.09
+,Recall,Cancer,1,1,➖ 0.00
+,F1-Score,Noncancer,0.94,0.99,🔼 +0.05
+,F1-Score,Cancer,0.97,0.99,🔼 +0.02
+,Macro Avg F1-Score,-,0.96,0.99,🔼 +0.03
+,Weighted Avg F1-Score,-,0.96,0.99,🔼 +0.03
+,Confusion Matrix,Noncancer,"[16, 2]","[17, 1]",🔼 FP↓
+,Confusion Matrix,Cancer,"[0, 32]","[0, 32]",➖ Stable
+,,,,,
+,Conclusion,"The Phi Reasoning model post-finetuning shows a notable boost in Noncancer recall and F1, while maintaining perfect performance on Cancer. Precision for Cancer also improves, and overall metrics approach near-perfect classification.",,,
